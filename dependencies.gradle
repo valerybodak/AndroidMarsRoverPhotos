@@ -1,7 +1,7 @@
 ext {
 
     // Android
-    minSdkVersion = 19
+    minSdkVersion = 23
     targetSdkVersion = 28
     compileSdkVersion = 28
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"

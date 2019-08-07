@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 28
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -26,10 +27,20 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation rootProject.ext.rxJava
+    implementation rootProject.ext.retrofit
+    implementation rootProject.ext.retrofitGsonConverter
+    implementation rootProject.ext.room
+    implementation rootProject.ext.rxRoom
+    kapt 'androidx.room:room-compiler:2.2.0-alpha01'
+
+    testImplementation rootProject.ext.junit
+    testImplementation rootProject.ext.mockito
+    androidTestImplementation rootProject.ext.androidTestRunner
+    testImplementation 'androidx.room:room-testing:2.0.0-beta01'
 
     implementation project(":domain")
 }
