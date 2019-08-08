@@ -6,9 +6,9 @@ import io.reactivex.Flowable
 import io.reactivex.Single
 import retrofit2.http.GET
 
-interface RemoteNewsApi {
+interface RemoteNasaApi {
 
     @GET("top-headlines?country=us")
-    fun getNews(): Flowable<NewsSourcesData>
+    fun getRoverPhotos(): Flowable<NewsSourcesData>
 
 }

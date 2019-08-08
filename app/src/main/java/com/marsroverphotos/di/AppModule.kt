@@ -1,7 +1,7 @@
 package com.marsroverphotos.di
 
 import androidx.room.Room
-import com.module.data.api.RemoteNewsApi
+import com.module.data.api.RemoteNasaApi
 import com.module.data.db.NewsDatabase
 import com.module.data.entities.NewsDataEntityMapper
 import com.module.data.entities.NewsEntityDataMapper
@@ -33,7 +33,7 @@ val mUseCaseModules = module {
 
 val mNetworkModules = module {
     single(name = RETROFIT_INSTANCE) { createNetworkClient(BASE_URL) }
-    single(name = API) { (get(RETROFIT_INSTANCE) as Retrofit).create(RemoteNewsApi::class.java) }
+    single(name = API) { (get(RETROFIT_INSTANCE) as Retrofit).create(RemoteNasaApi::class.java) }
 }
 
 val mLocalModules = module {
