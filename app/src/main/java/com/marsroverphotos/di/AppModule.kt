@@ -2,7 +2,7 @@ package com.marsroverphotos.di
 
 import androidx.room.Room
 import com.module.data.api.RemoteNasaApi
-import com.module.data.db.NewsDatabase
+import com.module.data.db.AppDatabase
 import com.module.data.entities.MarsPhotoDataEntityMapper
 import com.module.data.entities.NewsEntityDataMapper
 import com.module.data.repository.NewsCacheImpl
@@ -37,7 +37,7 @@ val mNetworkModules = module {
 }
 
 val mLocalModules = module {
-    single(name = DATABASE) { Room.databaseBuilder(androidApplication(), NewsDatabase::class.java, "news_articles").build() }
+    single(name = DATABASE) { Room.databaseBuilder(androidApplication(), AppDatabase::class.java, "news_articles").build() }
 }
 
 val mViewModels = module {

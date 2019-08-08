@@ -1,27 +1,27 @@
 package com.module.data.repository
 
-import com.module.data.db.ArticlesDao
-import com.module.data.db.NewsDatabase
+import com.module.data.db.MarsPhotosDao
+import com.module.data.db.AppDatabase
 import com.module.data.entities.MarsPhotoDataEntityMapper
 import com.module.data.entities.NewsEntityDataMapper
 import com.module.domain.entities.MarsPhotoSourcesEntity
 import io.reactivex.Flowable
 
-class NewsCacheImpl(private val database: NewsDatabase,
+class NewsCacheImpl(private val database: AppDatabase,
                     private val entityToDataMapper: NewsEntityDataMapper,
                     private val dataToEntityMapper: MarsPhotoDataEntityMapper) : NewsDataStore {
 
-    private val dao: ArticlesDao = database.getArticlesDao()
+    private val dao: MarsPhotosDao = database.getArticlesDao()
 
     override fun getNews(): Flowable<MarsPhotoSourcesEntity> {
-        return dao.getAllArticles().map { it ->
+        return dao.getAllMarsPhotos().map { it ->
             dataToEntityMapper.mapToEntity(it)
         }
     }
 
     fun saveArticles(it: MarsPhotoSourcesEntity) {
         dao.clear()
-        dao.saveAllArticles(it.photos.map { articles -> entityToDataMapper.mapArticleToEntity(articles) })
+        dao.saveAllMarsPhotos(it.photos.map { articles -> entityToDataMapper.mapArticleToEntity(articles) })
     }
 
 }

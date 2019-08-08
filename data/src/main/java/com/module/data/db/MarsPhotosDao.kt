@@ -8,15 +8,15 @@ import com.module.data.entities.MarsPhotoData
 import io.reactivex.Flowable
 
 @Dao
-interface ArticlesDao{
+interface MarsPhotosDao{
 
-    @Query("Select * from photos")
-    fun getAllArticles(): Flowable<List<MarsPhotoData>?>
+    @Query("Select * from mars_photos")
+    fun getAllMarsPhotos(): Flowable<List<MarsPhotoData>?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveAllArticles(articles: List<MarsPhotoData>)
+    fun saveAllMarsPhotos(articles: List<MarsPhotoData>)
 
-    @Query("DELETE FROM photos")
+    @Query("DELETE FROM mars_photos")
     fun clear()
 
 }
