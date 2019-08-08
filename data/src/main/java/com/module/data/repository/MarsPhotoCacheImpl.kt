@@ -7,9 +7,9 @@ import com.module.data.entities.NewsEntityDataMapper
 import com.module.domain.entities.MarsPhotoSourcesEntity
 import io.reactivex.Flowable
 
-class NewsCacheImpl(private val database: AppDatabase,
-                    private val entityToDataMapper: NewsEntityDataMapper,
-                    private val dataToEntityMapper: MarsPhotoDataEntityMapper) : NewsDataStore {
+class MarsPhotoCacheImpl(private val database: AppDatabase,
+                         private val entityToDataMapper: NewsEntityDataMapper,
+                         private val dataToEntityMapper: MarsPhotoDataEntityMapper) : MarsPhotoDataStore {
 
     private val dao: MarsPhotosDao = database.getArticlesDao()
 

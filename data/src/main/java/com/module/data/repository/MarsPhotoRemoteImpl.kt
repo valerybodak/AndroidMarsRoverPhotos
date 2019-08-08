@@ -5,13 +5,13 @@ import com.module.domain.entities.MarsPhotoSourcesEntity
 import com.module.data.entities.MarsPhotoDataEntityMapper
 import io.reactivex.Flowable
 
-class NewsRemoteImpl constructor(private val api:RemoteNasaApi): NewsDataStore {
+class MarsPhotoRemoteImpl constructor(private val api:RemoteNasaApi): MarsPhotoDataStore {
 
     private val newsMapper =  MarsPhotoDataEntityMapper()
 
     override fun getNews(): Flowable<MarsPhotoSourcesEntity> {
 
-        return api.getRoverPhotos().map { newsMapper.mapToEntity(it) }
+        return api.getMarsRoverPhotos().map { newsMapper.mapToEntity(it) }
     }
 
 }

@@ -4,14 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import android.util.Log
 import com.module.domain.common.Mapper
 import com.module.domain.entities.MarsPhotoSourcesEntity
-import com.module.domain.usecases.GetNewsUseCase
+import com.module.domain.usecases.GetMarsPhotosUseCase
 import com.marsroverphotos.common.BaseViewModel
 import com.marsroverphotos.entities.Data
 import com.marsroverphotos.entities.Error
 import com.marsroverphotos.entities.MarsPhotoSources
 import com.marsroverphotos.entities.Status
 
-class NewsViewModel(private val getNewsUseCase: GetNewsUseCase,
+class NewsViewModel(private val getNewsUseCase: GetMarsPhotosUseCase,
                     private val mapper: Mapper<MarsPhotoSourcesEntity, MarsPhotoSources>) : BaseViewModel() {
 
     companion object {

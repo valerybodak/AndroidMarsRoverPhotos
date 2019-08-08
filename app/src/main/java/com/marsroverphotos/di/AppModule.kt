@@ -5,11 +5,11 @@ import com.module.data.api.RemoteNasaApi
 import com.module.data.db.AppDatabase
 import com.module.data.entities.MarsPhotoDataEntityMapper
 import com.module.data.entities.NewsEntityDataMapper
-import com.module.data.repository.NewsCacheImpl
-import com.module.domain.usecases.GetNewsUseCase
-import com.module.data.repository.NewsRemoteImpl
-import com.module.data.repository.NewsRepositoryImpl
-import com.module.domain.repositories.NewsRepository
+import com.module.data.repository.MarsPhotoCacheImpl
+import com.module.domain.usecases.GetMarsPhotosUseCase
+import com.module.data.repository.MarsPhotoRemoteImpl
+import com.module.data.repository.MarsPhotoRepositoryImpl
+import com.module.domain.repositories.MarsPhotoRepository
 import com.marsroverphotos.common.AsyncFlowableTransformer
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -19,16 +19,16 @@ import org.koin.android.ext.koin.androidApplication
 import retrofit2.Retrofit
 
 val mRepositoryModules = module {
-    single(name = "remote") { NewsRemoteImpl(api = get(API))}
+    single(name = "remote") { MarsPhotoRemoteImpl(api = get(API))}
     single(name = "local") {
-        NewsCacheImpl(database = get(DATABASE), entityToDataMapper = NewsEntityDataMapper(),
+        MarsPhotoCacheImpl(database = get(DATABASE), entityToDataMapper = NewsEntityDataMapper(),
                 dataToEntityMapper = MarsPhotoDataEntityMapper())
     }
-    single { NewsRepositoryImpl(remote = get("remote"), cache = get("local")) as NewsRepository }
+    single { MarsPhotoRepositoryImpl(remote = get("remote"), cache = get("local")) as MarsPhotoRepository }
 }
 
 val mUseCaseModules = module {
-    factory(name = "getNewsUseCase") { GetNewsUseCase(transformer = AsyncFlowableTransformer(), repositories = get()) }
+    factory(name = "getNewsUseCase") { GetMarsPhotosUseCase(transformer = AsyncFlowableTransformer(), repositories = get()) }
 }
 
 val mNetworkModules = module {

@@ -4,6 +4,6 @@ import com.module.domain.entities.MarsPhotoSourcesEntity
 import io.reactivex.Flowable
 
 
-interface NewsDataStore{
+interface MarsPhotoDataStore{
     fun getNews(): Flowable<MarsPhotoSourcesEntity>
 }
