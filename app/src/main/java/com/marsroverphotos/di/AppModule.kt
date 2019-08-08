@@ -46,7 +46,7 @@ val mViewModels = module {
     }
 }
 
-private const val BASE_URL = "https://newsapi.org/v2/"
+private const val BASE_URL = "https://api.nasa.gov/"
 private const val RETROFIT_INSTANCE = "Retrofit"
 private const val API = "Api"
 private const val GET_NEWS_USECASE = "getNewsUseCase"
