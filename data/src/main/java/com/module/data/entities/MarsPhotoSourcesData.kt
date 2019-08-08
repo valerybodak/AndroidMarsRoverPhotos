@@ -18,8 +18,8 @@ class MarsPhotoDataEntityMapper constructor() {
         photos = mapListPhotosToEntity(photos)
     )
 
-    fun mapListPhotosToEntity(articles: List<MarsPhotoData>?)
-            : List<MarsPhotoEntity> = articles?.map { mapPhotoToEntity(it) } ?: emptyList()
+    fun mapListPhotosToEntity(photos: List<MarsPhotoData>?)
+            : List<MarsPhotoEntity> = photos?.map { mapPhotoToEntity(it) } ?: emptyList()
 
     fun mapPhotoToEntity(response: MarsPhotoData): MarsPhotoEntity = MarsPhotoEntity(
             id = response.id,
