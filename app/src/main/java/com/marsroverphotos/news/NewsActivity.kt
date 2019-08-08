@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.news_articles.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.marsroverphotos.R
 import com.marsroverphotos.entities.Status
-import com.marsroverphotos.news.NewsListAdapter
 
 class NewsActivity : AppCompatActivity() {
 
@@ -43,7 +42,7 @@ class NewsActivity : AppCompatActivity() {
                 }
             }
             it?.data?.let { response ->
-                listAdapter.updateList(response.articles)
+                listAdapter.updateList(response.photos)
             }
         })
     }

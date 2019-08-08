@@ -3,7 +3,7 @@ package com.marsroverphotos.di
 import androidx.room.Room
 import com.module.data.api.RemoteNasaApi
 import com.module.data.db.NewsDatabase
-import com.module.data.entities.NewsDataEntityMapper
+import com.module.data.entities.MarsPhotoDataEntityMapper
 import com.module.data.entities.NewsEntityDataMapper
 import com.module.data.repository.NewsCacheImpl
 import com.module.domain.usecases.GetNewsUseCase
@@ -14,7 +14,7 @@ import com.marsroverphotos.common.AsyncFlowableTransformer
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 import com.marsroverphotos.news.NewsViewModel
-import com.marsroverphotos.mappers.NewsEntityMapper
+import com.marsroverphotos.mappers.MarsPhotoEntityMapper
 import org.koin.android.ext.koin.androidApplication
 import retrofit2.Retrofit
 
@@ -22,7 +22,7 @@ val mRepositoryModules = module {
     single(name = "remote") { NewsRemoteImpl(api = get(API))}
     single(name = "local") {
         NewsCacheImpl(database = get(DATABASE), entityToDataMapper = NewsEntityDataMapper(),
-                dataToEntityMapper = NewsDataEntityMapper())
+                dataToEntityMapper = MarsPhotoDataEntityMapper())
     }
     single { NewsRepositoryImpl(remote = get("remote"), cache = get("local")) as NewsRepository }
 }
@@ -42,7 +42,7 @@ val mLocalModules = module {
 
 val mViewModels = module {
     viewModel {
-        NewsViewModel(getNewsUseCase = get(GET_NEWS_USECASE), mapper = NewsEntityMapper())
+        NewsViewModel(getNewsUseCase = get(GET_NEWS_USECASE), mapper = MarsPhotoEntityMapper())
     }
 }
 

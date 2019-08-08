@@ -8,17 +8,17 @@ import com.module.domain.usecases.GetNewsUseCase
 import com.marsroverphotos.common.BaseViewModel
 import com.marsroverphotos.entities.Data
 import com.marsroverphotos.entities.Error
-import com.marsroverphotos.entities.NewsSources
+import com.marsroverphotos.entities.MarsPhotoSources
 import com.marsroverphotos.entities.Status
 
 class NewsViewModel(private val getNewsUseCase: GetNewsUseCase,
-                    private val mapper: Mapper<MarsPhotoSourcesEntity, NewsSources>) : BaseViewModel() {
+                    private val mapper: Mapper<MarsPhotoSourcesEntity, MarsPhotoSources>) : BaseViewModel() {
 
     companion object {
         private val TAG = "viewmodel"
     }
 
-    var mNews = MutableLiveData<Data<NewsSources>>()
+    var mNews = MutableLiveData<Data<MarsPhotoSources>>()
 
     fun fetchNews() {
         val disposable = getNewsUseCase.getNews()
