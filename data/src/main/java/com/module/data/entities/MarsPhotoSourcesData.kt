@@ -33,13 +33,13 @@ class MarsPhotoDataEntityMapper constructor() {
 class NewsEntityDataMapper constructor() {
 
     fun mapToEntity(data: MarsPhotoSourcesEntity?): MarsPhotoSourcesData? = MarsPhotoSourcesData(
-        photos = mapListArticlesToEntity(data?.photos)
+        photos = mapListPhotosToEntity(data?.photos)
     )
 
-    fun mapListArticlesToEntity(articles: List<MarsPhotoEntity>?)
-            : List<MarsPhotoData> = articles?.map { mapArticleToEntity(it) } ?: emptyList()
+    fun mapListPhotosToEntity(articles: List<MarsPhotoEntity>?)
+            : List<MarsPhotoData> = articles?.map { mapPhotoToEntity(it) } ?: emptyList()
 
-    fun mapArticleToEntity(response: MarsPhotoEntity): MarsPhotoData = MarsPhotoData(
+    fun mapPhotoToEntity(response: MarsPhotoEntity): MarsPhotoData = MarsPhotoData(
             id = response.id,
             url = response.url
     )

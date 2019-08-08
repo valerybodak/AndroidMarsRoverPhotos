@@ -21,7 +21,7 @@ class NewsCacheImpl(private val database: AppDatabase,
 
     fun saveArticles(it: MarsPhotoSourcesEntity) {
         dao.clear()
-        dao.saveAllMarsPhotos(it.photos.map { articles -> entityToDataMapper.mapArticleToEntity(articles) })
+        dao.saveAllMarsPhotos(it.photos.map { articles -> entityToDataMapper.mapPhotoToEntity(articles) })
     }
 
 }
