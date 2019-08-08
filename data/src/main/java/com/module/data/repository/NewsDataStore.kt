@@ -1,10 +1,9 @@
 package com.module.data.repository
 
-import com.module.domain.entities.NewsSourcesEntity
+import com.module.domain.entities.MarsPhotoSourcesEntity
 import io.reactivex.Flowable
-import io.reactivex.Single
 
 
 interface NewsDataStore{
-    fun getNews(): Flowable<NewsSourcesEntity>
+    fun getNews(): Flowable<MarsPhotoSourcesEntity>
 }

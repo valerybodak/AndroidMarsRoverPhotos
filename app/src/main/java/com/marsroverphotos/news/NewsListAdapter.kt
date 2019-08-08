@@ -29,7 +29,7 @@ class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
 
         fun bind(newsPublisherItem: NewsPublisher) {
             with(itemView) {
-                heading.text = newsPublisherItem.description
+                heading.text = newsPublisherItem.url
             }
         }
     }

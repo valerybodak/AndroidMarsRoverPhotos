@@ -1,12 +1,12 @@
 package com.module.domain.repositories
 
-import com.module.domain.entities.NewsSourcesEntity
+import com.module.domain.entities.MarsPhotoSourcesEntity
 import io.reactivex.Flowable
 
 interface NewsRepository {
 
-    fun getNews(): Flowable<NewsSourcesEntity>
-    fun getLocalNews(): Flowable<NewsSourcesEntity>
-    fun getRemoteNews(): Flowable<NewsSourcesEntity>
+    fun getNews(): Flowable<MarsPhotoSourcesEntity>
+    fun getLocalNews(): Flowable<MarsPhotoSourcesEntity>
+    fun getRemoteNews(): Flowable<MarsPhotoSourcesEntity>
 
 }

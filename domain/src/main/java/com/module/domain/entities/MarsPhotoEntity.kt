@@ -1,6 +1,6 @@
 package com.module.domain.entities
 
-data class NewsPublisherEntity(
+data class MarsPhotoEntity(
         var id: Int,
         var name: String? = null,
         var description: String? = null,
