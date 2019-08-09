@@ -13,7 +13,7 @@ class MarsPhotoCacheImpl(private val database: AppDatabase,
 
     private val dao: MarsPhotosDao = database.getArticlesDao()
 
-    override fun getNews(): Flowable<MarsPhotoSourcesEntity> {
+    override fun getMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity> {
         return dao.getAllMarsPhotos().map { it ->
             dataToEntityMapper.mapToEntity(it)
         }

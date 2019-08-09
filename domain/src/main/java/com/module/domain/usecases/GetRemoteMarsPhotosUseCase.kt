@@ -10,10 +10,6 @@ import io.reactivex.Flowable
 class GetRemoteMarsPhotosUseCase(private val transformer: FlowableRxTransformer<MarsPhotoSourcesEntity>,
                                  private val repositories: MarsPhotoRepository): BaseFlowableUseCase<MarsPhotoSourcesEntity>(transformer){
 
-    companion object {
-        private const val PARAM_FILE_NEWS_ENTITY = "param:NewsStatus"
-    }
-
     override fun createFlowable(data: Map<String, Any>?): Flowable<MarsPhotoSourcesEntity> {
         return repositories.getMarsPhotos()
     }
