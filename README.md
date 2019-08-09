@@ -1,6 +1,8 @@
 # Mars Rover Photos (Clean Architecture)
 
-[![CircleCI](https://circleci.com/gh/rakshit444/news-sample-app/tree/master.svg?style=svg)](https://circleci.com/gh/rakshit444/news-sample-app/tree/master)  [![Kotlin](https://kotlin.link/awesome-kotlin.svg)](https://kotlinlang.org/)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Kotlin](https://kotlin.link/awesome-kotlin.svg)](https://kotlinlang.org/)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+<img src="https://user-images.githubusercontent.com/26433088/62779919-22fb7180-babd-11e9-9236-e8a9878ec619.png" width="15%">
 
 ### Features
 
