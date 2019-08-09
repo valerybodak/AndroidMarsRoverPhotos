@@ -11,6 +11,8 @@
 3. Using Koin for dependency resolution
 4. Single source of truth with Room
 
+<img src="https://user-images.githubusercontent.com/26433088/62779957-3eff1300-babd-11e9-8a75-c39f06d78082.png" width="50%">
+
 ### Steps to run:
 1. Generate api key from https://api.nasa.gov/index.html#apply-for-an-api-key
 2. Put the api key in presentation layer gradle file as a value to API_KEY
