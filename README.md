@@ -8,6 +8,7 @@
 
 1. Clean architecture using Kotlin
 2. Presentation layer using MVVM
+3. RxJava
 3. Using Koin for dependency resolution
 4. Single source of truth with Room
 
