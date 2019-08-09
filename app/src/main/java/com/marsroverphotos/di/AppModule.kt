@@ -42,7 +42,7 @@ val mLocalModules = module {
 
 val mViewModels = module {
     viewModel {
-        MarsPhotoViewModel(getNewsUseCase = get(GET_NEWS_USECASE), mapper = MarsPhotoEntityMapper())
+        MarsPhotoViewModel(getMarsPhotoUseCase = get(GET_NEWS_USECASE), mapper = MarsPhotoEntityMapper())
     }
 }
 
