@@ -31,9 +31,9 @@ class RoverSettingsActivity : AppCompatActivity() {
 
     private fun getRoverId(): String {
         when (radio_group.checkedRadioButtonId) {
-            0 -> return RoverId.CURIOSITY.id
-            1 -> return RoverId.OPPORTUNITY.id
-            2 -> return RoverId.SPIRIT.id
+            R.id.radio_1 -> return RoverId.CURIOSITY.id
+            R.id.radio_2 -> return RoverId.OPPORTUNITY.id
+            R.id.radio_3 -> return RoverId.SPIRIT.id
         }
         return RoverId.CURIOSITY.id
     }

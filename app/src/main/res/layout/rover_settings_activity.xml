@@ -15,7 +15,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-                android:id="@+id/radio_red"
+                android:id="@+id/radio_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -24,7 +24,7 @@
                 android:checked="true"/>
 
         <RadioButton
-                android:id="@+id/radio_blue"
+                android:id="@+id/radio_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/opportunity"
@@ -32,7 +32,7 @@
                 android:layout_weight="1"/>
 
         <RadioButton
-                android:id="@+id/radio_green"
+                android:id="@+id/radio_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/spirit"
