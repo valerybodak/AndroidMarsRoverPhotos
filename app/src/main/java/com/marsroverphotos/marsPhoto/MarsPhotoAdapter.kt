@@ -11,7 +11,7 @@ import com.marsroverphotos.R
 
 class MarsPhotoAdapter : RecyclerView.Adapter<MarsPhotoAdapter.MarsPhotoViewHolder>() {
 
-    var photos = mutableListOf<MarsPhoto>()
+    var articles = mutableListOf<MarsPhoto>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarsPhotoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.mars_photo_item, parent, false)
@@ -19,30 +19,30 @@ class MarsPhotoAdapter : RecyclerView.Adapter<MarsPhotoAdapter.MarsPhotoViewHold
     }
 
     override fun getItemCount(): Int {
-        return photos.size
+        return articles.size
     }
 
     override fun onBindViewHolder(holder: MarsPhotoViewHolder, position: Int) {
-        holder.bind(photos[position])
+        holder.bind(articles[position])
     }
 
     class MarsPhotoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(photoItem: MarsPhoto) {
             with(itemView) {
-
                 Glide
                     .with(photo_view.context)
                     .load(photoItem.url)
                     .into(photo_view)
+
             }
         }
     }
 
     fun updateList(list: List<MarsPhoto>) {
         if (list.isNotEmpty()) {
-            photos.clear()
-            photos.addAll(list)
+            articles.clear()
+            articles.addAll(list)
             notifyDataSetChanged()
         }
     }
