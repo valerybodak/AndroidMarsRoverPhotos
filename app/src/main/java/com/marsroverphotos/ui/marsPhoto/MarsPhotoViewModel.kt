@@ -1,4 +1,4 @@
-package com.marsroverphotos.marsPhoto
+package com.marsroverphotos.ui.marsPhoto
 
 import androidx.lifecycle.MutableLiveData
 import android.util.Log
@@ -11,7 +11,7 @@ import com.marsroverphotos.entities.Error
 import com.marsroverphotos.entities.MarsPhotoSources
 import com.marsroverphotos.entities.Status
 
-class MarsPhotoViewModel(private val getNewsUseCase: GetMarsPhotosUseCase,
+class MarsPhotoViewModel(private val getMarsPhotoUseCase: GetMarsPhotosUseCase,
                          private val mapper: Mapper<MarsPhotoSourcesEntity, MarsPhotoSources>) : BaseViewModel() {
 
     companion object {
@@ -20,8 +20,8 @@ class MarsPhotoViewModel(private val getNewsUseCase: GetMarsPhotosUseCase,
 
     var mPhotos = MutableLiveData<Data<MarsPhotoSources>>()
 
-    fun fetchNews() {
-        val disposable = getNewsUseCase.getNews()
+    fun fetchMarsPhotos(roverId: String) {
+        val disposable = getMarsPhotoUseCase.getMarsPhotos(roverId)
                 .flatMap { mapper.Flowable(it) }
                 .subscribe({ response ->
                     Log.d(TAG, "On Next Called")

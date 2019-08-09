@@ -5,5 +5,5 @@ import io.reactivex.Flowable
 
 
 interface MarsPhotoDataStore{
-    fun getNews(): Flowable<MarsPhotoSourcesEntity>
+    fun getMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity>
 }

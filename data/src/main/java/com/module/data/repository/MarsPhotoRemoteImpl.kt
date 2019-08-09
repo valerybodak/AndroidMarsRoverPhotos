@@ -9,9 +9,9 @@ class MarsPhotoRemoteImpl constructor(private val api:RemoteNasaApi): MarsPhotoD
 
     private val newsMapper =  MarsPhotoDataEntityMapper()
 
-    override fun getNews(): Flowable<MarsPhotoSourcesEntity> {
+    override fun getMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity> {
 
-        return api.getMarsRoverPhotos().map { newsMapper.mapToEntity(it) }
+        return api.getMarsRoverPhotos(roverId).map { newsMapper.mapToEntity(it) }
     }
 
 }

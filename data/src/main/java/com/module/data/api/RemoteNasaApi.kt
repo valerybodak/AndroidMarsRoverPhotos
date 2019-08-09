@@ -3,10 +3,11 @@ package com.module.data.api
 import com.module.data.entities.MarsPhotoSourcesData
 import io.reactivex.Flowable
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface RemoteNasaApi {
 
-    @GET("mars-photos/api/v1/rovers/curiosity/photos?sol=998&camera=fhaz")
-    fun getMarsRoverPhotos(): Flowable<MarsPhotoSourcesData>
+    @GET("mars-photos/api/v1/rovers/{rover_id}/photos?sol=998&camera=fhaz")
+    fun getMarsRoverPhotos(@Path("rover_id") roverId: String): Flowable<MarsPhotoSourcesData>
 
 }

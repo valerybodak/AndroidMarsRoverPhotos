@@ -11,17 +11,16 @@ class GetRemoteMarsPhotosUseCase(private val transformer: FlowableRxTransformer<
                                  private val repositories: MarsPhotoRepository): BaseFlowableUseCase<MarsPhotoSourcesEntity>(transformer){
 
     companion object {
-        private const val PARAM_FILE_NEWS_ENTITY = "param:NewsStatus"
+        private const val PARAM_ROVER_ID = "rover_id"
     }
 
     override fun createFlowable(data: Map<String, Any>?): Flowable<MarsPhotoSourcesEntity> {
-        return repositories.getMarsPhotos()
+        return repositories.getMarsPhotos(data!!.get(PARAM_ROVER_ID).toString())
     }
 
-    fun getNews(): Flowable<MarsPhotoSourcesEntity>{
+    fun getMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity>{
         val data = HashMap<String, String>()
+        data[PARAM_ROVER_ID] = roverId
         return single(data)
     }
-
-
 }
