@@ -1,4 +1,4 @@
-package com.marsroverphotos.news
+package com.marsroverphotos.marsPhotos
 
 import androidx.lifecycle.Observer
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.marsroverphotos.news
+package com.marsroverphotos.marsPhotos
 
 import androidx.lifecycle.MutableLiveData
 import android.util.Log
