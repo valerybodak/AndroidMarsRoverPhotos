@@ -13,7 +13,7 @@ import com.module.domain.repositories.MarsPhotoRepository
 import com.marsroverphotos.common.AsyncFlowableTransformer
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
-import com.marsroverphotos.marsPhoto.MarsPhotoViewModel
+import com.marsroverphotos.ui.marsPhoto.MarsPhotoViewModel
 import com.marsroverphotos.mappers.MarsPhotoEntityMapper
 import org.koin.android.ext.koin.androidApplication
 import retrofit2.Retrofit

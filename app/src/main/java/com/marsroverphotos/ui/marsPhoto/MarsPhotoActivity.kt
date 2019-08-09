@@ -1,4 +1,4 @@
-package com.marsroverphotos.marsPhoto
+package com.marsroverphotos.ui.marsPhoto
 
 import androidx.lifecycle.Observer
 import android.os.Bundle
