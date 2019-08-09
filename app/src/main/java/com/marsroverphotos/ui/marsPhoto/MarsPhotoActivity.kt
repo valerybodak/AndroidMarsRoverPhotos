@@ -76,7 +76,8 @@ class MarsPhotoActivity : AppCompatActivity() {
 
         if (requestCode == OPEN_SETTINGS_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                val result = data!!.getStringExtra("result")
+                val roverId = data?.getStringExtra(RoverSettingsActivity.EXTRA_SELECTED_ROVER_ID)
+                Log.e("roverId",roverId)
             }
         }
     }
