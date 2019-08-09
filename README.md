@@ -13,9 +13,6 @@
 1. Generate api key from https://api.nasa.gov/index.html#apply-for-an-api-key
 2. Put the api key in presentation layer gradle file as a value to API_KEY
 
-### Posting
-Clean architecture: https://medium.com/@rjain.jain444/kotlin-clean-architecture-1ad42fcd97fa <br/>
-
 ### Developed By
 
 * Valery Bodak  - <valerybodak@gmail.com> 
