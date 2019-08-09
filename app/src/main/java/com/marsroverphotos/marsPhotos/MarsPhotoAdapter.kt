@@ -4,32 +4,37 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.marsroverphotos.entities.MarsPhoto
 import kotlinx.android.synthetic.main.mars_photo_item.view.*
 import com.marsroverphotos.R
 
-class MarsPhotoAdapter : RecyclerView.Adapter<MarsPhotoAdapter.NewsViewHolder>() {
+class MarsPhotoAdapter : RecyclerView.Adapter<MarsPhotoAdapter.MarsPhotoViewHolder>() {
 
     var articles = mutableListOf<MarsPhoto>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarsPhotoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.mars_photo_item, parent, false)
-        return NewsViewHolder(view)
+        return MarsPhotoViewHolder(view)
     }
 
     override fun getItemCount(): Int {
         return articles.size
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MarsPhotoViewHolder, position: Int) {
         holder.bind(articles[position])
     }
 
-    class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MarsPhotoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(newsPublisherItem: MarsPhoto) {
+        fun bind(photoItem: MarsPhoto) {
             with(itemView) {
-                heading.text = newsPublisherItem.url
+                Glide
+                    .with(photo_view.context)
+                    .load(photoItem.url)
+                    .into(photo_view)
+
             }
         }
     }
