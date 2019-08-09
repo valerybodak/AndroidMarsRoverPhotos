@@ -12,7 +12,7 @@
 3. Using Koin for dependency resolution
 4. Single source of truth with Room
 
-<img src="https://user-images.githubusercontent.com/26433088/62787837-4aa70580-bace-11e9-8366-8d52a0116aee.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/26433088/62787838-4aa70580-bace-11e9-9d87-c96f885e86cc.png" width="30%"></img> 
+<img src="https://user-images.githubusercontent.com/26433088/62787837-4aa70580-bace-11e9-8366-8d52a0116aee.png" width="40%"></img> <img src="https://user-images.githubusercontent.com/26433088/62787838-4aa70580-bace-11e9-9d87-c96f885e86cc.png" width="40%"></img> 
 
 ### Steps to run:
 1. Generate api key from https://api.nasa.gov/index.html#apply-for-an-api-key
