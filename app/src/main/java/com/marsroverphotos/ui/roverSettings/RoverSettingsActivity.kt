@@ -19,6 +19,8 @@ class RoverSettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rover_settings_activity)
 
+        supportActionBar?.title = getString(R.string.select_rover)
+
         button_apply.setOnClickListener{
 
             val returnIntent = Intent()
