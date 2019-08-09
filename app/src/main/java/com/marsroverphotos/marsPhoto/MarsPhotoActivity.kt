@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.mars_photos_activity.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.marsroverphotos.R
 import com.marsroverphotos.entities.Status
+import android.view.Menu
 
 class MarsPhotoActivity : AppCompatActivity() {
 
@@ -46,5 +47,10 @@ class MarsPhotoActivity : AppCompatActivity() {
                 listAdapter.updateList(response.photos)
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
