@@ -1,4 +1,4 @@
-package com.marsroverphotos.marsPhoto
+package com.marsroverphotos.ui.marsPhoto
 
 import androidx.lifecycle.Observer
 import android.os.Bundle
@@ -10,10 +10,16 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import com.marsroverphotos.R
 import com.marsroverphotos.entities.Status
 import android.view.Menu
+import android.view.MenuItem
+import android.content.Intent
+import com.marsroverphotos.ui.roverSettings.RoverSettingsActivity
+import android.app.Activity
+import com.module.domain.entities.RoverId
 
 class MarsPhotoActivity : AppCompatActivity() {
 
     private val PHOTO_GALLERY_COLUMNS_NUMBER = 2
+    private val OPEN_SETTINGS_REQUEST_CODE = 1
 
     private val photosViewModel: MarsPhotoViewModel by viewModel()
     private lateinit var listAdapter: MarsPhotoAdapter
@@ -25,7 +31,7 @@ class MarsPhotoActivity : AppCompatActivity() {
 
         recycler_view.layoutManager = GridLayoutManager(this, PHOTO_GALLERY_COLUMNS_NUMBER)
         recycler_view.adapter = listAdapter
-        photosViewModel.fetchNews()
+        photosViewModel.fetchMarsPhotos(RoverId.CURIOSITY.id)
     }
 
     override fun onStart() {
@@ -52,5 +58,31 @@ class MarsPhotoActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.getItemId()) {
+            R.id.menu_item_settings   //this item has your app icon
+            -> {
+                val i = Intent(this, RoverSettingsActivity::class.java)
+                startActivityForResult(i, OPEN_SETTINGS_REQUEST_CODE)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        if (requestCode == OPEN_SETTINGS_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val roverId = data?.getStringExtra(RoverSettingsActivity.EXTRA_SELECTED_ROVER_ID)
+                roverId?.let {
+                    Log.e("roverId",roverId)
+                    photosViewModel.fetchMarsPhotos(it)
+                }
+            }
+        }
     }
 }

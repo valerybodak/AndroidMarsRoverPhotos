@@ -5,8 +5,8 @@ import io.reactivex.Flowable
 
 interface MarsPhotoRepository {
 
-    fun getMarsPhotos(): Flowable<MarsPhotoSourcesEntity>
-    fun getLocalMarsPhotos(): Flowable<MarsPhotoSourcesEntity>
-    fun getRemoteMarsPhotos(): Flowable<MarsPhotoSourcesEntity>
+    fun getMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity>
+    fun getLocalMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity>
+    fun getRemoteMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity>
 
 }
