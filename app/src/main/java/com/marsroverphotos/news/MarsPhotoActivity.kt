@@ -6,29 +6,29 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.news_articles.*
+import kotlinx.android.synthetic.main.mars_photos_activity.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.marsroverphotos.R
 import com.marsroverphotos.entities.Status
 
-class NewsActivity : AppCompatActivity() {
+class MarsPhotoActivity : AppCompatActivity() {
 
-    private val newsList: NewsViewModel by viewModel()
-    private lateinit var listAdapter: NewsListAdapter
+    private val photosViewModel: MarsPhotoViewModel by viewModel()
+    private lateinit var listAdapter: MarsPhotoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.news_articles)
-        listAdapter = NewsListAdapter()
+        setContentView(R.layout.mars_photos_activity)
+        listAdapter = MarsPhotoAdapter()
 
         recycler_view.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recycler_view.adapter = listAdapter
-        newsList.fetchNews()
+        photosViewModel.fetchNews()
     }
 
     override fun onStart() {
         super.onStart()
-        newsList.getNewsLiveData().observe(this, Observer {
+        photosViewModel.getMarsPhotoLiveData().observe(this, Observer {
             when (it?.responseType) {
                 Status.ERROR -> {
                     //Error handling

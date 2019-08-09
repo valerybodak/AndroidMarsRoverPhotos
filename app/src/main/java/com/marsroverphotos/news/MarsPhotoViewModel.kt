@@ -11,24 +11,24 @@ import com.marsroverphotos.entities.Error
 import com.marsroverphotos.entities.MarsPhotoSources
 import com.marsroverphotos.entities.Status
 
-class NewsViewModel(private val getNewsUseCase: GetMarsPhotosUseCase,
-                    private val mapper: Mapper<MarsPhotoSourcesEntity, MarsPhotoSources>) : BaseViewModel() {
+class MarsPhotoViewModel(private val getNewsUseCase: GetMarsPhotosUseCase,
+                         private val mapper: Mapper<MarsPhotoSourcesEntity, MarsPhotoSources>) : BaseViewModel() {
 
     companion object {
         private val TAG = "viewmodel"
     }
 
-    var mNews = MutableLiveData<Data<MarsPhotoSources>>()
+    var mPhotos = MutableLiveData<Data<MarsPhotoSources>>()
 
     fun fetchNews() {
         val disposable = getNewsUseCase.getNews()
                 .flatMap { mapper.Flowable(it) }
                 .subscribe({ response ->
                     Log.d(TAG, "On Next Called")
-                    mNews.value = Data(responseType = Status.SUCCESSFUL, data = response)
+                    mPhotos.value = Data(responseType = Status.SUCCESSFUL, data = response)
                 }, { error ->
                     Log.d(TAG, "On Error Called")
-                    mNews.value = Data(responseType = Status.ERROR, error = Error(error.message))
+                    mPhotos.value = Data(responseType = Status.ERROR, error = Error(error.message))
                 }, {
                     Log.d(TAG, "On Complete Called")
                 })
@@ -36,5 +36,5 @@ class NewsViewModel(private val getNewsUseCase: GetMarsPhotosUseCase,
         addDisposable(disposable)
     }
 
-    fun getNewsLiveData() = mNews
+    fun getMarsPhotoLiveData() = mPhotos
 }

@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.marsroverphotos.entities.MarsPhoto
-import kotlinx.android.synthetic.main.news_item.view.*
+import kotlinx.android.synthetic.main.mars_photo_item.view.*
 import com.marsroverphotos.R
 
-class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
+class MarsPhotoAdapter : RecyclerView.Adapter<MarsPhotoAdapter.NewsViewHolder>() {
 
     var articles = mutableListOf<MarsPhoto>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.news_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.mars_photo_item, parent, false)
         return NewsViewHolder(view)
     }
 

@@ -13,7 +13,7 @@ import com.module.domain.repositories.MarsPhotoRepository
 import com.marsroverphotos.common.AsyncFlowableTransformer
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
-import com.marsroverphotos.news.NewsViewModel
+import com.marsroverphotos.news.MarsPhotoViewModel
 import com.marsroverphotos.mappers.MarsPhotoEntityMapper
 import org.koin.android.ext.koin.androidApplication
 import retrofit2.Retrofit
@@ -37,12 +37,12 @@ val mNetworkModules = module {
 }
 
 val mLocalModules = module {
-    single(name = DATABASE) { Room.databaseBuilder(androidApplication(), AppDatabase::class.java, "news_articles").build() }
+    single(name = DATABASE) { Room.databaseBuilder(androidApplication(), AppDatabase::class.java, "mars_photos_activity").build() }
 }
 
 val mViewModels = module {
     viewModel {
-        NewsViewModel(getNewsUseCase = get(GET_NEWS_USECASE), mapper = MarsPhotoEntityMapper())
+        MarsPhotoViewModel(getNewsUseCase = get(GET_NEWS_USECASE), mapper = MarsPhotoEntityMapper())
     }
 }
 
