@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface RemoteNasaApi {
 
-    @GET("mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=fu6BdRZh8oyktYqAFwHXFUGVS2LgcpxQgkTMXtT3")
+    @GET("mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz")
     fun getMarsRoverPhotos(): Flowable<MarsPhotoSourcesData>
 
 }
