@@ -1,6 +1,6 @@
 package com.module.data.api
 
-import com.module.data.entities.MarsPhotoResponseData
+import com.module.data.entities.response.MarsPhotoResponseData
 import io.reactivex.Flowable
 import retrofit2.http.GET
 import retrofit2.http.Path

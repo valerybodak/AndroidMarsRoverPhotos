@@ -1,20 +1,10 @@
-package com.module.data.entities
+package com.module.data.mapper
 
-import com.google.gson.annotations.SerializedName
-import com.module.data.entities.response.RoverCameraResponse
+import com.module.data.entities.response.MarsPhotoResponseData
+import com.module.data.entities.response.MarsPhotoResponseItem
+import com.module.data.entities.db.MarsPhotoDbItem
 import com.module.domain.entities.MarsPhotoEntity
 import com.module.domain.entities.MarsPhotoSourcesEntity
-
-data class MarsPhotoResponseData(
-    @SerializedName("photos") var photos: List<MarsPhotoResponseItem> = emptyList()
-)
-
-data class MarsPhotoResponseItem(
-    @SerializedName("id") var id: Int,
-    @SerializedName("sol") var sol: Int,
-    @SerializedName("img_src") var url: String,
-    @SerializedName("camera") var camera: RoverCameraResponse
-)
 
 class MarsPhotoDataMapper {
 
@@ -49,12 +39,13 @@ class MarsPhotoDataMapper {
         cameraFullName = item.cameraFullName
     )
 
-    fun mapEntityToDbEntity(entity: MarsPhotoEntity): MarsPhotoDbItem = MarsPhotoDbItem(
-        id = entity.id,
-        sol = entity.sol,
-        url = entity.url,
-        cameraId = entity.cameraId,
-        cameraName = entity.cameraName,
-        cameraFullName = entity.cameraFullName
-    )
+    fun mapEntityToDbEntity(entity: MarsPhotoEntity): MarsPhotoDbItem =
+        MarsPhotoDbItem(
+            id = entity.id,
+            sol = entity.sol,
+            url = entity.url,
+            cameraId = entity.cameraId,
+            cameraName = entity.cameraName,
+            cameraFullName = entity.cameraFullName
+        )
 }
