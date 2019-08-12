@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.marsroverphotos.entities.MarsPhoto
 import kotlinx.android.synthetic.main.mars_photo_item.view.*
 import com.marsroverphotos.R
+import com.module.domain.entities.MarsPhotoEntity
 
 class MarsPhotoAdapter : RecyclerView.Adapter<MarsPhotoAdapter.MarsPhotoViewHolder>() {
 
-    var articles = mutableListOf<MarsPhoto>()
+    var articles = mutableListOf<MarsPhotoEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarsPhotoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.mars_photo_item, parent, false)
@@ -28,7 +28,7 @@ class MarsPhotoAdapter : RecyclerView.Adapter<MarsPhotoAdapter.MarsPhotoViewHold
 
     class MarsPhotoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(photoItem: MarsPhoto) {
+        fun bind(photoItem: MarsPhotoEntity) {
             with(itemView) {
                 Glide
                     .with(photo_view.context)
@@ -39,7 +39,7 @@ class MarsPhotoAdapter : RecyclerView.Adapter<MarsPhotoAdapter.MarsPhotoViewHold
         }
     }
 
-    fun updateList(list: List<MarsPhoto>) {
+    fun updateList(list: List<MarsPhotoEntity>) {
         if (list.isNotEmpty()) {
             articles.clear()
             articles.addAll(list)
