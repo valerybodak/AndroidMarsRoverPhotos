@@ -5,6 +5,11 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "mars_photos")
-data class MarsPhotoData(
+data class MarsPhotoDbItem(
         @PrimaryKey(autoGenerate = true) var id: Int = 0,
-        @SerializedName("img_src") var url: String? = null)
+        var sol: Int = -1,
+        var url: String = "",
+        var cameraId: Int = -1,
+        var cameraName: String = "",
+        var cameraFullName: String = ""
+)
