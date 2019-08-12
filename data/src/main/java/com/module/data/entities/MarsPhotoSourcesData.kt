@@ -24,6 +24,7 @@ class MarsPhotoDataEntityMapper constructor() {
     fun mapPhotoToEntity(response: MarsPhotoData): MarsPhotoEntity = MarsPhotoEntity(
             id = response.id,
             url = response.url
+
     )
 
 

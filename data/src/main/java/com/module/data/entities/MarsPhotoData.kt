@@ -7,4 +7,9 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "mars_photos")
 data class MarsPhotoData(
         @PrimaryKey(autoGenerate = true) var id: Int = 0,
-        @SerializedName("img_src") var url: String? = null)
+        @SerializedName("img_src") var url: String? = null
+        /*var cameraId: Int,
+        var cameraName: String,
+        var cameraRoverId: Int,
+        var cameraFullName: String*/
+)

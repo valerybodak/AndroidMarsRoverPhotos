@@ -16,10 +16,10 @@ class MarsPhotoRepositoryImpl(private val remote: MarsPhotoRemoteImpl,
     }
 
     override fun getMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity> {
-        val updateNewsFlowable = remote.getMarsPhotos(roverId)
+        val updatePhotosFlowable = remote.getMarsPhotos(roverId)
         return cache.getMarsPhotos(roverId)
-                .mergeWith(updateNewsFlowable.doOnNext{
-                    remoteNews -> cache.saveArticles(remoteNews)
+                .mergeWith(updatePhotosFlowable.doOnNext{
+                    remoteNews -> cache.savePhotos(remoteNews)
                 })
     }
 }

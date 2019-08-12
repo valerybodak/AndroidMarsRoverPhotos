@@ -19,7 +19,7 @@ class MarsPhotoCacheImpl(private val database: AppDatabase,
         }
     }
 
-    fun saveArticles(it: MarsPhotoSourcesEntity) {
+    fun savePhotos(it: MarsPhotoSourcesEntity) {
         dao.clear()
         dao.saveAllMarsPhotos(it.photos.map { articles -> entityToDataMapper.mapPhotoToEntity(articles) })
     }
