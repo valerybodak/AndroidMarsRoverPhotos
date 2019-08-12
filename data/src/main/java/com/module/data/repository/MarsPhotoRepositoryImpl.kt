@@ -19,7 +19,7 @@ class MarsPhotoRepositoryImpl(private val remote: MarsPhotoRemoteImpl,
         val updatePhotosFlowable = remote.getMarsPhotos(roverId)
         return cache.getMarsPhotos(roverId)
                 .mergeWith(updatePhotosFlowable.doOnNext{
-                    remoteNews -> cache.savePhotos(remoteNews)
+                    remotePhotos -> cache.savePhotos(remotePhotos)
                 })
     }
 }
