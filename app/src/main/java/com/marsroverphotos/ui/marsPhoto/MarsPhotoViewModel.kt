@@ -12,7 +12,7 @@ import com.marsroverphotos.entities.Status
 class MarsPhotoViewModel(private val getMarsPhotoUseCase: GetMarsPhotosUseCase) : BaseViewModel() {
 
     companion object {
-        private val TAG = "viewmodel"
+        private val TAG = "MarsPhotoViewModel"
     }
 
     var mPhotos = MutableLiveData<Data<MarsPhotoSourcesEntity>>()
