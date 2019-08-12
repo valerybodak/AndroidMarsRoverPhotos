@@ -2,7 +2,7 @@ package com.module.data.repository
 
 import com.module.data.api.RemoteNasaApi
 import com.module.domain.entities.MarsPhotoSourcesEntity
-import com.module.data.entities.MarsPhotoDataMapper
+import com.module.data.mapper.MarsPhotoDataMapper
 import io.reactivex.Flowable
 
 class MarsPhotoRemoteImpl constructor(private val api: RemoteNasaApi) : MarsPhotoDataStore {

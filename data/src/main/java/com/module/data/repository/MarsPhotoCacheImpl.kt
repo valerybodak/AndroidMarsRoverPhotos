@@ -2,7 +2,7 @@ package com.module.data.repository
 
 import com.module.data.db.MarsPhotosDao
 import com.module.data.db.AppDatabase
-import com.module.data.entities.MarsPhotoDataMapper
+import com.module.data.mapper.MarsPhotoDataMapper
 import com.module.domain.entities.MarsPhotoSourcesEntity
 import io.reactivex.Flowable
 
