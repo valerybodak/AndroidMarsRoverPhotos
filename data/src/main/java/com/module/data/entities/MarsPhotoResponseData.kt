@@ -1,30 +1,53 @@
 package com.module.data.entities
 
 import com.google.gson.annotations.SerializedName
+import com.module.data.entities.response.RoverCameraResponse
 import com.module.domain.entities.MarsPhotoEntity
 import com.module.domain.entities.MarsPhotoSourcesEntity
 
 data class MarsPhotoResponseData(
-        @SerializedName("photos") var photos: List<MarsPhotoData> = emptyList()
+    @SerializedName("photos") var photos: List<MarsPhotoResponseItem> = emptyList()
 )
 
-class MarsPhotoDataEntityMapper {
+data class MarsPhotoResponseItem(
+    @SerializedName("id") var id: Int,
+    @SerializedName("sol") var sol: Int,
+    @SerializedName("img_src") var url: String? = null,
+    @SerializedName("camera") var camera: RoverCameraResponse
+)
+
+class MarsPhotoResponseDataMapper {
 
     fun mapToEntity(data: MarsPhotoResponseData?): MarsPhotoSourcesEntity? = MarsPhotoSourcesEntity(
-            photos = mapListPhotosToEntity(data?.photos)
+        photos = mapListResponseItems(data?.photos)
     )
 
-    fun mapToEntity(photos: List<MarsPhotoData>?): MarsPhotoSourcesEntity? = MarsPhotoSourcesEntity(
-        photos = mapListPhotosToEntity(photos)
+    fun mapToEntity(photos: List<MarsPhotoDbItem>?): MarsPhotoSourcesEntity? = MarsPhotoSourcesEntity(
+        photos = mapListDbItems(photos)
     )
 
-    fun mapListPhotosToEntity(photos: List<MarsPhotoData>?)
-            : List<MarsPhotoEntity> = photos?.map { mapPhotoToEntity(it) } ?: emptyList()
+    private fun mapListResponseItems(photos: List<MarsPhotoResponseItem>?)
+            : List<MarsPhotoEntity> = photos?.map { mapPhotoResponseItemToEntity(it) } ?: emptyList()
 
-    fun mapPhotoToEntity(response: MarsPhotoData): MarsPhotoEntity = MarsPhotoEntity(
-            id = response.id,
-            url = response.url
+    private fun mapListDbItems(photos: List<MarsPhotoDbItem>?)
+            : List<MarsPhotoEntity> = photos?.map { mapPhotoDbItemToEntity(it) } ?: emptyList()
 
+    private fun mapPhotoResponseItemToEntity(item: MarsPhotoResponseItem): MarsPhotoEntity = MarsPhotoEntity(
+        id = item.id,
+        url = item.url,
+        sol = item.sol,
+        cameraId = item.camera.id,
+        cameraName = item.camera.name,
+        cameraFullName = item.camera.fullName
+    )
+
+    private fun mapPhotoDbItemToEntity(item: MarsPhotoDbItem): MarsPhotoEntity = MarsPhotoEntity(
+        id = item.id,
+        url = item.url,
+        sol = item.sol,
+        cameraId = item.id,
+        cameraName = item. cameraName,
+        cameraFullName = item.cameraFullName
     )
 }
 
@@ -35,11 +58,11 @@ class MarsPhotoEntityDataMapper {
     )
 
     fun mapListPhotosToEntity(photos: List<MarsPhotoEntity>?)
-            : List<MarsPhotoData> = photos?.map { mapPhotoToEntity(it) } ?: emptyList()
+            : List<MarsPhotoDbItem> = photos?.map { mapPhotoToEntity(it) } ?: emptyList()
 
-    fun mapPhotoToEntity(response: MarsPhotoEntity): MarsPhotoData = MarsPhotoData(
-            id = response.id,
-            url = response.url
+    fun mapPhotoToEntity(response: MarsPhotoEntity): MarsPhotoDbItem = MarsPhotoDbItem(
+        id = response.id,
+        url = response.url
     )
 
 

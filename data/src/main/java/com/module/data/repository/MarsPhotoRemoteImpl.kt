@@ -2,12 +2,12 @@ package com.module.data.repository
 
 import com.module.data.api.RemoteNasaApi
 import com.module.domain.entities.MarsPhotoSourcesEntity
-import com.module.data.entities.MarsPhotoDataEntityMapper
+import com.module.data.entities.MarsPhotoResponseDataMapper
 import io.reactivex.Flowable
 
 class MarsPhotoRemoteImpl constructor(private val api: RemoteNasaApi) : MarsPhotoDataStore {
 
-    private val mapper = MarsPhotoDataEntityMapper()
+    private val mapper = MarsPhotoResponseDataMapper()
 
     override fun getMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity> {
 
