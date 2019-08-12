@@ -2,12 +2,12 @@ package com.module.data.repository
 
 import com.module.data.db.MarsPhotosDao
 import com.module.data.db.AppDatabase
-import com.module.data.entities.MarsPhotoResponseDataMapper
+import com.module.data.entities.MarsPhotoDataMapper
 import com.module.domain.entities.MarsPhotoSourcesEntity
 import io.reactivex.Flowable
 
 class MarsPhotoCacheImpl(private val database: AppDatabase,
-                         private val dataToEntityMapper: MarsPhotoResponseDataMapper) : MarsPhotoDataStore {
+                         private val dataToEntityMapper: MarsPhotoDataMapper) : MarsPhotoDataStore {
 
     private val dao: MarsPhotosDao = database.getArticlesDao()
 

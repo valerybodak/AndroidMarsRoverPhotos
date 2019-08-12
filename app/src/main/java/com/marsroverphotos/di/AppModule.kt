@@ -3,7 +3,7 @@ package com.marsroverphotos.di
 import androidx.room.Room
 import com.module.data.api.RemoteNasaApi
 import com.module.data.db.AppDatabase
-import com.module.data.entities.MarsPhotoResponseDataMapper
+import com.module.data.entities.MarsPhotoDataMapper
 import com.module.data.repository.MarsPhotoCacheImpl
 import com.module.domain.usecases.GetMarsPhotosUseCase
 import com.module.data.repository.MarsPhotoRemoteImpl
@@ -20,7 +20,7 @@ import retrofit2.Retrofit
 val mRepositoryModules = module {
     single(name = "remote") { MarsPhotoRemoteImpl(api = get(API))}
     single(name = "local") {
-        MarsPhotoCacheImpl(database = get(DATABASE), dataToEntityMapper = MarsPhotoResponseDataMapper())
+        MarsPhotoCacheImpl(database = get(DATABASE), dataToEntityMapper = MarsPhotoDataMapper())
     }
     single { MarsPhotoRepositoryImpl(remote = get("remote"), cache = get("local")) as MarsPhotoRepository }
 }

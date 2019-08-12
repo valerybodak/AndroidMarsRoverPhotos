@@ -16,7 +16,7 @@ data class MarsPhotoResponseItem(
     @SerializedName("camera") var camera: RoverCameraResponse
 )
 
-class MarsPhotoResponseDataMapper {
+class MarsPhotoDataMapper {
 
     fun mapToEntity(data: MarsPhotoResponseData?): MarsPhotoSourcesEntity? = MarsPhotoSourcesEntity(
         photos = mapListResponseItems(data?.photos)
