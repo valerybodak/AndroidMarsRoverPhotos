@@ -3,8 +3,7 @@ package com.marsroverphotos.di
 import androidx.room.Room
 import com.module.data.api.RemoteNasaApi
 import com.module.data.db.AppDatabase
-import com.module.data.entities.MarsPhotoDataEntityMapper
-import com.module.data.entities.NewsEntityDataMapper
+import com.module.data.entities.MarsPhotoDataMapper
 import com.module.data.repository.MarsPhotoCacheImpl
 import com.module.domain.usecases.GetMarsPhotosUseCase
 import com.module.data.repository.MarsPhotoRemoteImpl
@@ -14,15 +13,13 @@ import com.marsroverphotos.common.AsyncFlowableTransformer
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 import com.marsroverphotos.ui.marsPhoto.MarsPhotoViewModel
-import com.marsroverphotos.mappers.MarsPhotoEntityMapper
 import org.koin.android.ext.koin.androidApplication
 import retrofit2.Retrofit
 
 val mRepositoryModules = module {
     single(name = "remote") { MarsPhotoRemoteImpl(api = get(API))}
     single(name = "local") {
-        MarsPhotoCacheImpl(database = get(DATABASE), entityToDataMapper = NewsEntityDataMapper(),
-                dataToEntityMapper = MarsPhotoDataEntityMapper())
+        MarsPhotoCacheImpl(database = get(DATABASE), dataToEntityMapper = MarsPhotoDataMapper())
     }
     single { MarsPhotoRepositoryImpl(remote = get("remote"), cache = get("local")) as MarsPhotoRepository }
 }
@@ -42,7 +39,7 @@ val mLocalModules = module {
 
 val mViewModels = module {
     viewModel {
-        MarsPhotoViewModel(getMarsPhotoUseCase = get(GET_NEWS_USECASE), mapper = MarsPhotoEntityMapper())
+        MarsPhotoViewModel(getMarsPhotoUseCase = get(GET_NEWS_USECASE))
     }
 }
 
