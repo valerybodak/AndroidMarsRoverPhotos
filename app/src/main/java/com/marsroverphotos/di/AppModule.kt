@@ -25,7 +25,7 @@ val mRepositoryModules = module {
 }
 
 val mUseCaseModules = module {
-    factory(name = "getNewsUseCase") { GetMarsPhotosUseCase(transformer = AsyncFlowableTransformer(), repositories = get()) }
+    factory(name = GET_PHOTOS_USECASE) { GetMarsPhotosUseCase(transformer = AsyncFlowableTransformer(), repositories = get()) }
 }
 
 val mNetworkModules = module {
@@ -39,13 +39,13 @@ val mLocalModules = module {
 
 val mViewModels = module {
     viewModel {
-        MarsPhotoViewModel(getMarsPhotoUseCase = get(GET_NEWS_USECASE))
+        MarsPhotoViewModel(getMarsPhotoUseCase = get(GET_PHOTOS_USECASE))
     }
 }
 
 private const val BASE_URL = "https://api.nasa.gov/"
 private const val RETROFIT_INSTANCE = "Retrofit"
 private const val API = "Api"
-private const val GET_NEWS_USECASE = "getNewsUseCase"
+private const val GET_PHOTOS_USECASE = "getPhotosUseCase"
 private const val REMOTE = "remote response"
 private const val DATABASE = "database"
