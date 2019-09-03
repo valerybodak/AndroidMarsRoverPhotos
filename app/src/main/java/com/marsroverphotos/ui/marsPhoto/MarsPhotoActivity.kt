@@ -3,7 +3,6 @@ package com.marsroverphotos.ui.marsPhoto
 import androidx.lifecycle.Observer
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.mars_photos_activity.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -14,9 +13,10 @@ import android.view.MenuItem
 import android.content.Intent
 import com.marsroverphotos.ui.roverSettings.RoverSettingsActivity
 import android.app.Activity
+import com.marsroverphotos.ui.base.BaseActivity
 import com.module.domain.entities.RoverId
 
-class MarsPhotoActivity : AppCompatActivity() {
+class MarsPhotoActivity : BaseActivity() {
 
     private val PHOTO_GALLERY_COLUMNS_NUMBER = 2
     private val OPEN_SETTINGS_REQUEST_CODE = 1
@@ -39,8 +39,7 @@ class MarsPhotoActivity : AppCompatActivity() {
         photosViewModel.getMarsPhotoLiveData().observe(this, Observer {
             when (it?.responseType) {
                 Status.ERROR -> {
-                    //Error handling
-                    Log.e("Status.ERROR","Status.ERROR")
+                    showError(it.error?.message!!)
                 }
                 Status.LOADING -> {
                     //Progress
