@@ -6,5 +6,5 @@ import com.module.data.entities.db.MarsPhotoDbItem
 
 @Database(entities = arrayOf(MarsPhotoDbItem::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun getArticlesDao(): MarsPhotosDao
+    abstract fun getPhotosDao(): MarsPhotosDao
 }

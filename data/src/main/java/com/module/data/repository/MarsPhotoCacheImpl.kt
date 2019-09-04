@@ -9,7 +9,7 @@ import io.reactivex.Flowable
 class MarsPhotoCacheImpl(private val database: AppDatabase,
                          private val dataToEntityMapper: MarsPhotoDataMapper) : MarsPhotoDataStore {
 
-    private val dao: MarsPhotosDao = database.getArticlesDao()
+    private val dao: MarsPhotosDao = database.getPhotosDao()
 
     override fun getMarsPhotos(roverId: String): Flowable<MarsPhotoSourcesEntity> {
         return dao.getAllMarsPhotos().map { it ->

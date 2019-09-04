@@ -14,7 +14,7 @@ interface MarsPhotosDao{
     fun getAllMarsPhotos(): Flowable<List<MarsPhotoDbItem>?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveAllMarsPhotos(articles: List<MarsPhotoDbItem>)
+    fun saveAllMarsPhotos(photos: List<MarsPhotoDbItem>)
 
     @Query("DELETE FROM mars_photos")
     fun clear()
