@@ -26,7 +26,7 @@ This repository contains a detailed sample app that implements Clean Architectur
 
 ### License
 
-    Copyright 2021 Valery Bodak
+    Copyright 2022 Valery Bodak
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
